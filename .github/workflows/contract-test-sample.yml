@@ -30,3 +30,9 @@ jobs:
       - name: Record provider deployment
         if: github.ref == 'refs/heads/main'
         run: npm run record:provider:deployment
+      - name: Record web consumer deployment
+        if: github.ref == 'refs/heads/main'
+        run: npm run record:web:consumer:deployment
+      - name: Record provider deployment
+        if: github.ref == 'refs/heads/main'
+        run: npm run record:provider:deployment
