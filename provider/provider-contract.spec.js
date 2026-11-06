@@ -12,6 +12,10 @@ const options = {
   pactBrokerToken: process.env.PACT_BROKER_TOKEN,
   providerVersion: process.env.GITHUB_SHA,
   providerVersionBranch: process.env.GITHUB_BRANCH,
+  consumerVersionSelectors: [
+      { mainBranch: true },
+      { matchingBranch: true },
+    ],
   publishVerificationResult: true,
   stateHandlers: {
     'Has a movie with specific ID': (parameters) => {
@@ -24,19 +28,6 @@ const options = {
     },
   }
 }
-
-if (process.env.PACT_PAYLOAD_URL) {
-  console.log(`Pact payload URL specified: ${process.env.PACT_PAYLOAD_URL}`)
-  options.pactUrls = [process.env.PACT_PAYLOAD_URL]
-} else {
-  console.log(`Using Pact Broker Base URL: ${process.env.PACT_BROKER_BASE_URL}`)
-  options.pactBrokerUrl = process.env.PACT_BROKER_BASE_URL,
-    options.consumerVersionSelectors = [
-      { mainBranch: true },
-      { matchingBranch: true },
-      { deployedOrReleased: true }
-    ]
-};
 
 const verifier = new Verifier(options);
 
