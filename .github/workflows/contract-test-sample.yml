@@ -24,12 +24,16 @@ jobs:
         run: npm run publish:pact
       - name: Run provider contract tests
         run: npm run test:provider
+      - name: Can I deploy provider?
+        run: npm run can:i:deploy:provider
       - name: Record web consumer deployment
         if: github.ref == 'refs/heads/main'
         run: npm run record:web:consumer:deployment
       - name: Record provider deployment
         if: github.ref == 'refs/heads/main'
         run: npm run record:provider:deployment
+      - name: Can I deploy web consumer?
+        run: npm run can:i:deploy:consumer
       - name: Record web consumer deployment
         if: github.ref == 'refs/heads/main'
         run: npm run record:web:consumer:deployment
