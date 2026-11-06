@@ -10,7 +10,7 @@ const options = {
   provider: 'MoviesAPI',
   providerBaseUrl: `http://localhost:${port}`,
   pactBrokerToken: process.env.PACT_BROKER_TOKEN,
-  providerVersion: '1.0.0',
+  providerVersion: PROCESS.ENV.GITHUB_SHA , //1.0.0
   publishVerificationResult: true,
   consumerVersionTags: ['main'],
   stateHandlers: {
