@@ -16,6 +16,8 @@
     "consume:kafka:message": "node events/consumer-event/server.js",
     "test:event:consumer": "jest ./events/consumer-event/src/movies/movie.handler.pact.test.js",
     "test:event:producer": "jest --testTimeout 30000 ./events/event-producer/src/movie.event.pact.test.js",
+    "record:web:consumer:deployment": "pact-broker record-deployment --pacticipant WebConsumer --version $GITHUB_SHA --environment production",
+    "record:provider:deployment": "pact-broker record-deployment --pacticipant MoviesAPI --version $GITHUB_SHA --environment production",
     "start:bi:web": "node consumer-bi-directional/index.js",
     "bi:consumer:cy:open": "cypress open",
     "bi:consumer:cy:run": "cypress run",
