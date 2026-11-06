@@ -15,6 +15,7 @@ const options = {
   consumerVersionSelectors: [
       { mainBranch: true },
       { matchingBranch: true },
+      { deployedOrReleased: true }
     ],
   publishVerificationResult: true,
   stateHandlers: {
